@@ -13,8 +13,8 @@ import static io.restassured.RestAssured.given;
 
 public class BaseTest {
 
-    private RequestSpecification reqSpec;
-    private ResponseSpecification respSpec;
+    protected RequestSpecification reqSpec;
+    protected ResponseSpecification respSpec;
 
     @BeforeEach
     public void setUp() {
@@ -33,15 +33,5 @@ public class BaseTest {
         RequestLoggingFilter reqLog = new RequestLoggingFilter();
         ResponseLoggingFilter respLog = new ResponseLoggingFilter();
         RestAssured.filters(reqLog, respLog);
-    }
-
-    @Test
-    public void test() {
-        given()
-                .spec(reqSpec)
-        .when()
-                .get()
-        .then()
-                .spec(respSpec);
     }
 }
