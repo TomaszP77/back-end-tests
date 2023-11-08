@@ -6,18 +6,15 @@ import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import static io.restassured.RestAssured.given;
+import org.junit.jupiter.api.BeforeAll;
 
 public class BaseTest {
 
-    protected RequestSpecification reqSpec;
-    protected ResponseSpecification respSpec;
+    protected static RequestSpecification reqSpec;
+    protected static ResponseSpecification respSpec;
 
-    @BeforeEach
-    public void setUp() {
+    @BeforeAll
+    public static void setUp() {
 
         reqSpec = new RequestSpecBuilder()
                 .setBaseUri("https://jsonplaceholder.typicode.com/")

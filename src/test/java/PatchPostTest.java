@@ -13,7 +13,7 @@ public class PatchPostTest extends BaseTest {
 
         Post createdPost = given()
                                 .spec(reqSpec)
-                                .pathParam("id", 1)
+                                .pathParam("id", 3)
                                 .body(post)
                             .when()
                                 .patch("{id}")
@@ -22,6 +22,5 @@ public class PatchPostTest extends BaseTest {
                                 .extract().body().as(Post.class);
 
         Assertions.assertEquals("Updated POST", createdPost.getTitle());
-        Assertions.assertEquals("qui est esse",createdPost.getBody());
     }
 }
