@@ -1,3 +1,5 @@
+package jsonplaceholderTests;
+
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 
