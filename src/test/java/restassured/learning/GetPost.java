@@ -7,7 +7,11 @@ import static io.restassured.RestAssured.when;
 public class GetPost {
 
     @Test
-    public void getPost(){
-        when().get("jsonplaceholder.typicode.com/posts/1").then().log().all();
+    public void getPost() {
+        when()
+                .get("https://jsonplaceholder.typicode.com/posts/10")
+        .then()
+                .log()
+                .all();
     }
 }
