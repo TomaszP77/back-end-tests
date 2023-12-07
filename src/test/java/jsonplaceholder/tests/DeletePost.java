@@ -1,5 +1,6 @@
-package jsonplaceholderTests;
+package jsonplaceholder.tests;
 
+import jsonplaceholder.tests.framework.BaseTest;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;

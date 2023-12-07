@@ -1,4 +1,4 @@
-package jsonplaceholderTests.model;
+package jsonplaceholder.tests.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
