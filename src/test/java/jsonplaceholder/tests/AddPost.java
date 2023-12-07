@@ -1,7 +1,8 @@
-package jsonplaceholderTests;
+package jsonplaceholder.tests;
 
 import io.restassured.http.ContentType;
-import jsonplaceholderTests.model.Post;
+import jsonplaceholder.tests.framework.BaseTest;
+import jsonplaceholder.tests.model.Post;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -22,7 +23,7 @@ public class AddPost extends BaseTest {
                            .then()
                                 .statusCode(201)
                                 .contentType(ContentType.JSON)
-                                .extract().body().as(jsonplaceholderTests.model.Post.class);
+                                .extract().body().as(Post.class);
 
         Assertions.assertEquals(post, createdPost);
     }

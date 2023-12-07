@@ -1,6 +1,7 @@
-package jsonplaceholderTests;
+package jsonplaceholder.tests;
 
-import jsonplaceholderTests.model.Post;
+import jsonplaceholder.tests.framework.BaseTest;
+import jsonplaceholder.tests.model.Post;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

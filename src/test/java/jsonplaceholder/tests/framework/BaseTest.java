@@ -1,4 +1,4 @@
-package jsonplaceholderTests;
+package jsonplaceholder.tests.framework;
 
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
