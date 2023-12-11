@@ -11,7 +11,6 @@ public class GetPost {
         when()
                 .get("https://jsonplaceholder.typicode.com/posts/10")
         .then()
-                .log()
-                .all();
+                .log().all();
     }
 }
