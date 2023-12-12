@@ -2,9 +2,9 @@ package restassured.learning.model;
 
 public class Post {
 
-    int userId;
-    String title;
-    String body;
+    private int userId;
+    private String title;
+    private String body;
 
     public int getUserId() {
         return userId;
