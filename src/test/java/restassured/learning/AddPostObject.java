@@ -9,7 +9,7 @@ import static io.restassured.RestAssured.given;
 public class AddPostObject {
 
     @Test
-    public void addPostObjectTest() {
+    public void addPostObject() {
         Post newPost = new Post();
         newPost.setUserId(777);
         newPost.setTitle("new post");

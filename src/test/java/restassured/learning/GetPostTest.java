@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.when;
 
-public class GetPost {
+public class GetPostTest {
 
     @Test
     public void getPost() {

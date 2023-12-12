@@ -7,7 +7,7 @@ import java.io.File;
 
 import static io.restassured.RestAssured.given;
 
-public class AddPostFromFile {
+public class AddPostFromFileTest {
 
     @Test
     public void addPostFromFile() {
