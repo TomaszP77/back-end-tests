@@ -3,17 +3,19 @@ package restassured.learning;
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.Test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static io.restassured.RestAssured.given;
 
-public class AddPost {
+public class AddPostMapTest {
 
     @Test
-    public void addPost() {
-        String newPost = "{\n" +
-                "    \"userId\": 1,\n" +
-                "    \"id\": 10,\n" +
-                "    \"title\": \"optio molestias id quia eum\",\n" +
-                "    \"body\": \"new post\"}";
+    public void addPostMap() {
+        Map<String, Object> newPost = new HashMap<>();
+        newPost.put("userId", 67);
+        newPost.put("title", "new post");
+        newPost.put("body", "new post from map");
 
         given()
                 .log().all()
