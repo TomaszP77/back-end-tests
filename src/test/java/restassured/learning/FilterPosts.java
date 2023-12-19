@@ -16,4 +16,15 @@ public class FilterPosts {
         .then()
                 .log().all();
     }
+
+    @Test
+    public void filterPostsById() {
+        given()
+                .log().all()
+                .queryParam("id", 1, 5, 10)
+        .when()
+                .get("https://jsonplaceholder.typicode.com/posts/")
+        .then()
+                .log().all();
+    }
 }
