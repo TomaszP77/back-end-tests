@@ -3,6 +3,7 @@ package restassured.learning;
 import io.restassured.http.ContentType;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
+import restassured.learning.model.Post;
 
 import java.io.File;
 
@@ -42,5 +43,23 @@ public class CheckingTheStatusCode {
         .then()
                 .log().all()
                 .statusCode(Matchers.equalTo(200));
+    }
+
+    @Test
+    public void addPostObject() {
+        Post newPost = new Post();
+        newPost.setUserId(777);
+        newPost.setTitle("new post");
+        newPost.setBody("new post from object");
+
+        given()
+                .log().all()
+                .contentType(ContentType.JSON)
+                .body(newPost)
+        .when()
+                .post("https://jsonplaceholder.typicode.com/posts/")
+        .then()
+                .log().all()
+                .statusCode(Matchers.greaterThan(200));
     }
 }
