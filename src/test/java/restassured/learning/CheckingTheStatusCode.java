@@ -1,6 +1,7 @@
 package restassured.learning;
 
 import io.restassured.http.ContentType;
+import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -32,5 +33,14 @@ public class CheckingTheStatusCode {
         .then()
                 .log().all()
                 .statusCode(201);
+    }
+
+    @Test
+    public void getPost() {
+        when()
+                .get("https://jsonplaceholder.typicode.com/posts/10")
+        .then()
+                .log().all()
+                .statusCode(Matchers.equalTo(200));
     }
 }
