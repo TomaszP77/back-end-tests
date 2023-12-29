@@ -24,4 +24,15 @@ public class VerifyResponse {
                 .log().all()
                 .body(Matchers.equalTo(expected));
     }
+
+    @Test
+    public void verifyResponseContainsString() {
+        given()
+                .log().all()
+        .when()
+                .get("https://jsonplaceholder.typicode.com/todos/{id}",1)
+        .then()
+                .log().all()
+                .body(Matchers.containsString("delectus aut autem"));
+    }
 }
