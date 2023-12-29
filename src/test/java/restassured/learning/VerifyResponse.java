@@ -4,6 +4,7 @@ import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
 
 public class VerifyResponse {
 
@@ -22,7 +23,7 @@ public class VerifyResponse {
                 .get("https://jsonplaceholder.typicode.com/todos/{id}",1)
         .then()
                 .log().all()
-                .body(Matchers.equalTo(expected));
+                .body(equalTo(expected));
     }
 
     @Test
@@ -45,5 +46,17 @@ public class VerifyResponse {
         .then()
                 .log().all()
                 .body(Matchers.containsStringIgnoringCase("DELECTUS AUT AUTEM"));
+    }
+
+    @Test
+    public void verifyResponseCheckSpecificField() {
+        given()
+                .log().all()
+        .when()
+                .get("https://jsonplaceholder.typicode.com/todos/{id}", 1)
+        .then()
+                .log().all()
+                .assertThat().body("title", equalTo("delectus aut autem"))
+                .assertThat().body("completed", equalTo(false));
     }
 }
