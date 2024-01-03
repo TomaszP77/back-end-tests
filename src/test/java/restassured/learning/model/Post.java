@@ -2,7 +2,7 @@ package restassured.learning.model;
 
 public class Post {
 
-    private int userId;
+    private Integer userId;
     private String title;
     private String body;
 
