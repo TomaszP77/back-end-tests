@@ -1,7 +1,9 @@
 package restassured.learning;
 
 import org.hamcrest.Matchers;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import restassured.learning.model.Album;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
@@ -58,5 +60,24 @@ public class VerifyResponse {
                 .log().all()
                 .assertThat().body("title", equalTo("delectus aut autem"))
                 .assertThat().body("completed", equalTo(false));
+    }
+
+    @Test
+    public void getAlbumObject() {
+        Integer id = 5;
+
+        Album newAlbum = given()
+                            .log().all()
+                        .when()
+                            .get("https://jsonplaceholder.typicode.com/albums/{id}", 5)
+                        .then()
+                            .log().all()
+                            .assertThat().body("userId", equalTo(1))
+                            .assertThat().body("title", equalTo("eaque aut omnis a"))
+                            .extract().body().as(Album.class);
+
+        Assertions.assertEquals(1, newAlbum.getUserId());
+        Assertions.assertEquals(5,id);
+        Assertions.assertEquals("eaque aut omnis a", newAlbum.getTitle());
     }
 }
