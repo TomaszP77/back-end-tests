@@ -1,9 +1,11 @@
 package restassured.learning;
 
+import io.restassured.http.ContentType;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import restassured.learning.model.Album;
+import restassured.learning.model.Post;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
@@ -79,5 +81,25 @@ public class VerifyResponse {
         Assertions.assertEquals(1, newAlbum.getUserId());
         Assertions.assertEquals(5,id);
         Assertions.assertEquals("eaque aut omnis a", newAlbum.getTitle());
+    }
+
+    @Test
+    public void addPostObject() {
+        Post newPost = new Post();
+        newPost.setUserId(777);
+        newPost.setTitle("verify new post");
+        newPost.setBody("verify new post from object");
+
+        Post createdPost = given()
+                                .log().all()
+                                .contentType(ContentType.JSON)
+                                .body(newPost)
+                            .when()
+                                .post("https://jsonplaceholder.typicode.com/posts/")
+                            .then()
+                                .log().all()
+                                .extract().body().as(Post.class);
+
+        Assertions.assertEquals(createdPost, newPost);
     }
 }
