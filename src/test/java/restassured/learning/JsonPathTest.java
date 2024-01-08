@@ -5,6 +5,7 @@ import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.Map;
 
 public class JsonPathTest {
 
@@ -33,6 +34,7 @@ public class JsonPathTest {
         String addressSuite = response.path("address.suite");
         String addressCity = response.path("address.city");
         String addressZipcode = response.path("address.zipcode");
+        Map<String, ?> addressGeo = response.path("address.geo");
         String addressGeoLat = response.path("address.geo.lat");
         String addressGeoLng = response.path("address.geo.lng");
         String phone = response.path("phone");
