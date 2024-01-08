@@ -31,4 +31,12 @@ public class CheckSpecificFieldValue {
 
         Assertions.assertEquals("Leanne Graham", name);
     }
+
+    @Test
+    public void checkSpecificFieldJsonPathOtherForm() {
+        String response = RestAssured.get("https://jsonplaceholder.typicode.com/users/1").asString();
+        String name = JsonPath.from(response).get("name");
+
+        Assertions.assertEquals("Leanne Graham", name);
+    }
 }
