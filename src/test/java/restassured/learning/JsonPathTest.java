@@ -43,4 +43,14 @@ public class JsonPathTest {
         String companyCatchPhrase = response.path("company.catchPhrase");
         String companyBs = response.path("company.bs");
     }
+
+    @Test
+    public void checkSpecificFieldJsonPath() {
+        Response response = RestAssured.get("https://jsonplaceholder.typicode.com/users/");
+
+        Map<String, ?> infoCompany = response.path("company.find {it.name=='Hoeger LLC'}");
+        System.out.println(infoCompany);
+        String infoCompany1 = response.path("company.find {it.name=='Hoeger LLC'}.bs");
+        System.out.println(infoCompany1);
+    }
 }
